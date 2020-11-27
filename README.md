@@ -20,17 +20,43 @@ sudo apt update
 
 5. Установить общие пакеты:
 ```sh
-sudo apt install linux-libc-dev ffmpeg curl wget gnupg git python3 python3-pip python3-venv python3-dev python3-setuptools python3-lib2to3 python3-distutils g++ g++-7 build-essential java-common openjdk-11-jre-headless default-jre-headless ca-certificates-java dh-python linux-libc-dev libc6-dev build-essential libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev libcairo2-dev libgirepository1.0-dev linux-headers-$(uname -r)
+sudo apt install
+curl \
+gnupg \
+git \
+python3 python3-pip python3-venv python3-dev python3-setuptools python3-lib2to3 python3-distutils \
+g++ g++-7 \
+build-essential \
+java-common openjdk-11-jre-headless default-jre-headless ca-certificates-java \
+linux-libc-dev libc6-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev libcairo2-dev libgirepository1.0-dev linux-headers-$(uname -r)
 ```
 
 6. Установить пакеты NVIDIA:
 ```sh
-sudo apt install cuda-10-1 cuda-toolkit-10-1 cuda-tools-10-1 cuda-runtime-10-1 cuda-compiler-10-1 cuda-libraries-10-1 cuda-libraries-dev-10-1  libcudnn7=7.6.5.32-1+cuda10.1 libcudnn7-dev=7.6.5.32-1+cuda10.1
+sudo apt install
+cuda-10-1 \
+cuda-toolkit-10-1 \
+cuda-tools-10-1 \
+cuda-runtime-10-1 \
+cuda-compiler-10-1 \
+cuda-libraries-10-1 \
+cuda-libraries-dev-10-1 \
+libcudnn7=7.6.5.32-1+cuda10.1 \
+libcudnn7-dev=7.6.5.32-1+cuda10.1
 ```
 
 7. После установки желательно заблокировать автоматическое обновление этих пакетов, чтобы гарантировать стабильную работу CUDA-драйверов.
 ```sh
-sudo apt-mark hold install cuda-10-1 cuda-toolkit-10-1 cuda-tools-10-1 cuda-runtime-10-1 cuda-compiler-10-1 cuda-libraries-10-1 cuda-libraries-dev-10-1  libcudnn7=7.6.5.32-1+cuda10.1 libcudnn7-dev=7.6.5.32-1+cuda10.1
+sudo apt-mark hold install
+cuda-10-1 \
+cuda-toolkit-10-1 \
+cuda-tools-10-1 \
+cuda-runtime-10-1 \
+cuda-compiler-10-1 \
+cuda-libraries-10-1 \
+cuda-libraries-dev-10-1 \
+libcudnn7=7.6.5.32-1+cuda10.1 \
+libcudnn7-dev=7.6.5.32-1+cuda10.1
 ```
 
 8. Чтобы были видны все библиотеки, нужно обновить переменную окружения, добавить её в файл `/etc/environment`, чтобы её было видно всегда и всем пользователям: 
@@ -42,5 +68,33 @@ echo export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/
 9. Установить библиотеки для машинного и глубокого обучения. Список можно дополнять в зависимости от задач.
 ```sh
 python3 -m pip install --upgrade pip wheel setuptools six
-python3 -m pip install absl-py ai-benchmark argon2-cffi astunparse attrs backcall beautifulsoup4 bleach blis Bottleneck cachetools catalogue catboost certifi cffi chardet click cycler cymem Cython dataclasses decorator defusedxml distro-info entrypoints fastai fastprogress ffmpeg ffmpeg-python freetype-py future gast google-auth google-auth-oauthlib google-pasta graphviz grpcio h5py idna imageio imageio-ffmpeg importlib-metadata ipykernel ipython ipython-genutils ipywidgets jedi Jinja2 joblib json5 jsonschema jupyter jupyter-client jupyter-console jupyter-core jupyterlab jupyterlab-server Keras Keras-Preprocessing kiwisolver language-selector lightgbm Markdown MarkupSafe matplotlib mistune moviepy mpmath murmurhash nbconvert nbformat netifaces networkx nltk nose notebook numexpr numpy nvidia-ml-py3 oauthlib opencv-python opt-einsum packaging pandas pandocfilters parso pexpect pickleshare Pillow pip plac plotly preshed proglog prometheus-client prompt-toolkit protobuf ptyprocess pyasn1 pyasn1-modules pycparser Pygments pygobject pyparsing pyrsistent python-apt python-dateutil python-debian pytz PyYAML pyzmq qtconsole QtPy regex requests requests-oauthlib retrying rsa scikit-learn scipy Send2Trash setuptools six soupsieve spacy srsly sympy tensorboard tensorboard-plugin-wit tensorboardX tensorflow-estimator tensorflow-gpu termcolor terminado testpath thinc threadpoolctl torch torchvision tornado tqdm traitlets transforms3d typing urllib3 vispy wasabi wcwidth webencodings Werkzeug wheel widgetsnbextension wrapt xgboost zipp
+python3 -m pip install --use-feature=2020-resolver \
+ai-benchmark \
+Bottleneck \
+catboost \
+fastai \
+freetype-py \
+ipykernel \
+ipython ipython-genutils ipywidgets \
+jupyter jupyter-client jupyter-console jupyter-core jupyterlab jupyterlab-server notebook \
+Keras Keras-Preprocessing \
+lightgbm \
+matplotlib \
+nltk \
+numpy \
+nvidia-ml-py3 \
+opencv-python \
+pandas \
+pandocfilters \
+pip \
+plotly \
+protobuf \
+scikit-learn \
+scipy \
+sympy \
+tensorflow-gpu tensorboard tensorboard-plugin-wit tensorboardX tensorflow-estimator \
+torch \
+torchvision \
+xgboost \
+zipp
 ```
