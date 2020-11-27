@@ -66,7 +66,7 @@ export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/local
 echo export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/local/cuda-10.1/targets/x86_64-linux/lib:/usr/local/cuda-10.2/targets/x86_64-linux/lib:/opt/nvidia/nsight-systems/2020.3.4/target-linux-x64/libcupti.so.10.0:/usr/local/cuda-10.1/extras/CUPTI/lib64/" >> /etc/environment
 ```
 
-9. Установить библиотеки для машинного и глубокого обучения. Список можно дополнять в зависимости от задач.
+9. Установить библиотеки для машинного и глубокого обучения. Список можно дополнить в зависимости от задач.
 ```sh
 python3 -m pip install --use-feature=2020-resolver \
 ai-benchmark \
