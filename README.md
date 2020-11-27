@@ -1,6 +1,6 @@
 # Установка драйверов CUDA и библиотек для машинного и глубокого обучения
 
-1. Добавить строку `http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /` в файл `/etc/apt/sources.list` (список источников APT).
+1. Добавить строку `deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /` в файл `/etc/apt/sources.list` (список источников APT).
 
 2. Скачать и установить deb-пакет с репозиторием CUDA:
 ```
