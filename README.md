@@ -1,13 +1,15 @@
 # nvidia-howto
 
 1. Добавить строку `http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /` в файл `/etc/apt/sources.list` (список источников APT).
-2. Скачать и установить deb-пакет с репозиторием
+2. Скачать и установить deb-пакет с репозиторием CUDA:
 ```
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 ```
 3. Добавить ключ репозитория:
-`sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub`
+```
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+```
 4. Обновить список доступных пакетов:
 `sudo apt update`
 5. Установить общие пакеты:
@@ -18,11 +20,11 @@ sudo apt install linux-libc-dev ffmpeg curl wget gnupg git python3 python3-pip p
 ```
 sudo apt install cuda-10-1 cuda-toolkit-10-1 cuda-tools-10-1 cuda-runtime-10-1 cuda-compiler-10-1 cuda-libraries-10-1 cuda-libraries-dev-10-1  libcudnn7=7.6.5.32-1+cuda10.1 libcudnn7-dev=7.6.5.32-1+cuda10.1
 ```
-7. После установки желательно заблокировать автоматическое обновление этих пакетов, это гарантирует стабильную работу CUDA-драйверов.
+7. После установки желательно заблокировать автоматическое обновление этих пакетов, чтобы гарантировать стабильную работу CUDA-драйверов.
 ```
 sudo apt-mark hold install cuda-10-1 cuda-toolkit-10-1 cuda-tools-10-1 cuda-runtime-10-1 cuda-compiler-10-1 cuda-libraries-10-1 cuda-libraries-dev-10-1  libcudnn7=7.6.5.32-1+cuda10.1 libcudnn7-dev=7.6.5.32-1+cuda10.1
 ```
-8. Чтобы были видны все библиотеки, надо обновить переменную окружения, и добавить ее в файл /etc/environment, чтобы ее было видно всегда и всем пользователям. 
+8. Чтобы были видны все библиотеки, нужно обновить переменную окружения, добавить её в файл `/etc/environment`, чтобы её было видно всегда и всем пользователям: 
 ```
 export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/local/cuda-10.1/targets/x86_64-linux/lib:/usr/local/cuda-10.2/targets/x86_64-linux/lib:/opt/nvidia/nsight-systems/2020.3.4/target-linux-x64/libcupti.so.10.0:/usr/local/cuda-10.1/extras/CUPTI/lib64/"
 echo export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/local/cuda-10.1/targets/x86_64-linux/lib:/usr/local/cuda-10.2/targets/x86_64-linux/lib:/opt/nvidia/nsight-systems/2020.3.4/target-linux-x64/libcupti.so.10.0:/usr/local/cuda-10.1/extras/CUPTI/lib64/" >> /etc/environment
