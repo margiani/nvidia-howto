@@ -28,7 +28,8 @@ python3 python3-pip python3-venv python3-dev python3-setuptools python3-lib2to3 
 g++ g++-7 \
 build-essential \
 java-common openjdk-11-jre-headless default-jre-headless ca-certificates-java \
-linux-libc-dev libc6-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev libcairo2-dev libgirepository1.0-dev linux-headers-$(uname -r)
+linux-libc-dev libc6-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev libcairo2-dev \
+libgirepository1.0-dev linux-headers-$(uname -r)
 ```
 
 6. Установить пакеты NVIDIA:
