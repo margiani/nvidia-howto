@@ -20,7 +20,7 @@ sudo apt update
 
 5. Установить общие пакеты:
 ```sh
-sudo apt install
+sudo apt install \
 curl \
 gnupg \
 git \
@@ -34,7 +34,7 @@ libgirepository1.0-dev linux-headers-$(uname -r)
 
 6. Установить пакеты NVIDIA:
 ```sh
-sudo apt install
+sudo apt install \
 cuda-10-1 \
 cuda-toolkit-10-1 \
 cuda-tools-10-1 \
@@ -48,7 +48,7 @@ libcudnn7-dev=7.6.5.32-1+cuda10.1
 
 7. После установки желательно заблокировать автоматическое обновление этих пакетов, чтобы гарантировать стабильную работу CUDA-драйверов.
 ```sh
-sudo apt-mark hold install
+sudo apt-mark hold install \
 cuda-10-1 \
 cuda-toolkit-10-1 \
 cuda-tools-10-1 \
@@ -68,7 +68,7 @@ echo export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/
 
 9. Установить библиотеки для машинного и глубокого обучения. Список можно дополнять в зависимости от задач.
 ```sh
-python3 -m pip install --upgrade pip wheel setuptools six
+python3 -m pip install --upgrade pip wheel setuptools six \
 python3 -m pip install --use-feature=2020-resolver \
 ai-benchmark \
 Bottleneck \
