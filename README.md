@@ -68,7 +68,7 @@ echo export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/
 
 9. Установить библиотеки для машинного и глубокого обучения. Список можно дополнять в зависимости от задач.
 ```sh
-python3 -m pip install --upgrade pip wheel setuptools six \
+python3 -m pip install --upgrade pip wheel setuptools six
 python3 -m pip install --use-feature=2020-resolver \
 ai-benchmark \
 Bottleneck \
