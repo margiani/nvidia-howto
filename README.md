@@ -101,3 +101,4 @@ wheel \
 xgboost \
 zipp
 ```
+10. Проверьте версию CUDA-драйвера командой `nvidia-smi`. 
