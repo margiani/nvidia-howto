@@ -1,24 +1,24 @@
-# Установка драйверов NVIDIA CUDA и библиотек для Data Science
+# How to install NVIDIA CUDA drivers and Data Science libraries
 
-1. Добавьте строку `deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /` в файл `/etc/apt/sources.list` (список источников APT).
+1. Add `deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64 /` string to `/etc/apt/sources.list` file (APT source list).
 
-2. Скачайте и установите deb-пакет с репозиторием CUDA:
+2. Download and install the deb package with the CUDA repository:
 ```sh
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1804_10.1.105-1_amd64.deb
 ```
 
-3. Добавьте ключ репозитория:
+3. Add a repository key:
 ```sh
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 ```
 
-4. Обновите список пакетов:
+4. Update the package list:
 ```sh
 sudo apt update
 ```
 
-5. Установите пакеты NVIDIA:
+5. Install NVIDIA packages:
 ```sh
 sudo apt install \
 cuda-10-1 \
@@ -32,7 +32,7 @@ libcudnn7=7.6.5.32-1+cuda10.1 \
 libcudnn7-dev=7.6.5.32-1+cuda10.1
 ```
 
-6. После установки желательно заблокировать автоматическое обновление этих пакетов, чтобы гарантировать стабильную работу CUDA-драйверов:
+6. It is recommended to disable automatic updates of these packages to ensure stable operation of CUDA drivers:
 ```sh
 sudo apt-mark hold install \
 cuda-10-1 \
@@ -46,14 +46,14 @@ libcudnn7=7.6.5.32-1+cuda10.1 \
 libcudnn7-dev=7.6.5.32-1+cuda10.1
 ```
 
-7. Чтобы библиотеки были видны всем пользователям, обновите переменную окружения, добавив её в файл `/etc/environment`: 
+7. To make the libraries visible to all users, update the environment variable by adding it to the `/etc/environment` file: 
 ```
 export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/local/cuda-10.1/targets/x86_64-linux/lib:/usr/local/cuda-10.2/targets/x86_64-linux/lib:/opt/nvidia/nsight-systems/2020.3.4/target-linux-x64/libcupti.so.10.0:/usr/local/cuda-10.1/extras/CUPTI/lib64/"
 echo export LD_LIBRARY_PATH="/usr/local/cuda-10.0/targets/x86_64-linux/lib:/usr/local/cuda-10.1/targets/x86_64-linux/lib:/usr/local/cuda-10.2/targets/x86_64-linux/lib:/opt/nvidia/nsight-systems/2020.3.4/target-linux-x64/libcupti.so.10.0:/usr/local/cuda-10.1/extras/CUPTI/lib64/" >> /etc/environment
 ```
-На этом шаге установка драйверов NVIDIA завершается. Чтобы установить библиотеки для Data Science, выполните следующие шаги.
+This completes the installation of the NVIDIA drivers. To install the Data Science libraries, follow next steps.
 
-8. Установите общие пакеты:
+8. Install common packages:
 ```sh
 sudo apt install \
 curl \
@@ -67,7 +67,7 @@ linux-libc-dev libc6-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-d
 libgirepository1.0-dev linux-headers-$(uname -r)
 ```
 
-9. Установите библиотеки для машинного и глубокого обучения. Их список можно изменить в зависимости от задач.
+9. Install the ML/DL libraries. You can edit the list depending on your task.
 ```sh
 python3 -m pip install --use-feature=2020-resolver \
 ai-benchmark \
